@@ -9,11 +9,11 @@ function App() {
       tittle: 'card1'
     },
     {
-      id: 1,
+      id: 2,
       tittle: 'card2'
     },
     {
-      id: 1,
+      id: 3,
       tittle: 'card3'
     }
   ])
