@@ -20,6 +20,9 @@ function App() {
   const [itemsToHide, setItemsToHide] = useState([]);
 
   const filteredArray = arr.filter(el => !itemsToHide.includes(el.id));
+  console.log(itemsToHide);
+  console.log('----------------------')
+  console.log(filteredArray);
 
   const removeItems = () => {
     const itemToRemove = filteredArray[0];
