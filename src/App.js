@@ -1,23 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
 
 function App() {
+    const [list, changeList] = useState([
+        {
+            id: 1,
+            card: 'card1'
+        },
+        {
+            id: 2,
+            card: 'card2'
+        },
+        {
+            id: 3,
+            card: 'card3'
+        }
+    ])
+
+    const remove =(itemToRemove) =>{
+        if (itemToRemove !== 'first' && itemToRemove!== 'last') return;
+
+        const newList = [...list];
+        itemToRemove === 'first' && newList.shift();
+        itemToRemove === 'last' && newList.pop();
+        changeList(newList);
+    }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={() => remove('first')}>remove first</button>
+        <button onClick={() => remove('last')}>remove last</button>
+        <ul>
+            {list.map(el => <li key={el.id}>{el.card}</li>)}
+        </ul>
     </div>
   );
 }
