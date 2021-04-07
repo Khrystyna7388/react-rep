@@ -54,6 +54,7 @@ const App = () => {
     }
 
     const resetError = () => setErrorMessage('');
+
     const onSubmit = () => {
 
         const isEndpointValid = validateEndpoint();
@@ -80,8 +81,6 @@ const App = () => {
     }
 
     const onFieldUpdate = ({target: {name, value}}) => setEndpointFields({...endpointFields, [name]: value})
-
-
 
     return (
         <div className="App">
