@@ -1,25 +1,55 @@
 import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let interval;
+class Comp extends Component {
+
+    componentDidMount() {
+       interval = setInterval(() => {
+            console.log('fetching new data')
+        }, 2000)
+        console.log('component did mount child')
+    }
+
+    componentWillUnmount() {
+        console.log('component will unmount child')
+        clearInterval(interval);
+    }
+
+    render() {
+        console.log('child rerender')
+        return (
+            <h2>child</h2>
+        )
+    }
+}
+
+class App extends Component {
+    state = {
+        counter: 0
+    }
+
+    componentDidMount() {
+        console.log('component did mount');
+    }
+
+    componentDidUpdate() {
+    }
+
+    incCounter = () => {
+        this.setState({counter: this.state.counter + 1});
+    }
+
+    render() {
+        console.log('rerender');
+        return (
+            <>
+                <h1 onClick={this.incCounter}>hello {this.state.counter}</h1>
+                {!!(this.state.counter % 2) && <Comp/>}
+            </>
+        )
+    }
 }
 
 export default App;
