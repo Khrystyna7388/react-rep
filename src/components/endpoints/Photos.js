@@ -18,7 +18,7 @@ export const Photos = () => {
     return(
         <div>
             {photos.map(photo => <div className="list" key={photo.id}>
-                <Link to={`/photo/${photo.id}`}><h1>PHOTO {photo.id}</h1></Link>
+                <Link to={`/photos/${photo.id}`}><h1>PHOTO {photo.id}</h1></Link>
                 <h2>photo title: {photo.title}</h2>
                 <h3>photo url: {photo.url}</h3>
                 <hr/>
