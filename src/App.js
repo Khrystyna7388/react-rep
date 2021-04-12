@@ -1,10 +1,24 @@
 import logo from './logo.svg';
-import React, {useCallback, useState} from "react";
+import React, {memo, useCallback, useState} from "react";
 import './App.css';
 
-const Child = () => {
+//useCallback
+//використовувати, коли child обгорунтий в memo і child приймає пропсою якусь функцію
 
-}
+const Child = memo(() => {
+  const [counter, setCounter] = useState(0);
+  const inc = () => {
+    setCounter(prev => prev + 1);
+  }
+
+  console.log('child rerender')
+  return (
+      <>
+        <h1>child comp</h1>
+        <button onClick={inc}>{counter}</button>
+      </>
+  )
+})
 
 const App = () => {
   const [counter, setCounter] = useState(0);
@@ -22,6 +36,8 @@ const App = () => {
     <div className="App">
       <button onClick={inc}>{counter}</button>
       <button onClick={inc1}>{counter1}</button>
+
+      <Child inc={inc}/>
     </div>
   );
 }
