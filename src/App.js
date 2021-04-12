@@ -1,25 +1,37 @@
 import logo from './logo.svg';
+import React, {memo, useState} from "react";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//memo
+//поки в компоненті з обгорткою мемо щось не зміниться, доти в паренті вона не перерендиться
+
+const Child = memo(() => {
+    const [counter, setCounter] = useState(0);
+    const inc = () => {
+        setCounter(prev => prev + 1);
+    }
+
+    console.log('child rerender')
+    return (
+        <>
+            <h1>child comp</h1>
+            <button onClick={inc}>{counter}</button>
+        </>
+    )
+})
+
+const App = () => {
+    const [counter, setCounter] = useState(0)
+
+    console.log('rerender')
+
+    return (
+        <div className="App">
+            <button onClick={() => setCounter(prev => prev + 1)}>{counter}</button>
+
+            <Child/>
+        </div>
+    );
 }
 
 export default App;
