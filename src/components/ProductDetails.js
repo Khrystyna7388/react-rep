@@ -6,11 +6,12 @@ import {toggleItemInCart, toggleItemInWishlist} from "../redux/action-creators";
 
 export const ProductDetails = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState(null);
     const params = useParams();
 
-    const {products} = useSelector(({products: {products}}) => products);
+    // const {products} = useSelector(({products: {products}}) => products);
     const {productsInCart} = useSelector(store => store.cart);
+    // console.log(productsInCart)
     const {productsInWishlist} = useSelector(store => store.wishlist);
     const dispatch = useDispatch();
 

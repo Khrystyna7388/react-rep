@@ -12,6 +12,7 @@ export const Products = () => {
         isLoading
     }));
     const {productsInCart} = useSelector(store => store.cart);
+    // console.log(productsInCart.length)
     const {productsInWishlist} = useSelector(store => store.wishlist);
     const [currentLimit, setCurrentLimit] = useState(LIMIT_STEP);
     const history = useHistory();
@@ -25,6 +26,9 @@ export const Products = () => {
 
     return (
         <>
+            <h2 onClick={() => history.push('/men-clothing')}>Men Clothing</h2>
+            <h2 onClick={() => history.push('/sort=asc')}>Asc Sort</h2>
+
             <div className="product-wrapper">
                 {isLoading && (
                     <h2>loading...</h2>

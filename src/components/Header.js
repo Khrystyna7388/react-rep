@@ -23,11 +23,11 @@ export const Header = () => {
 
             <div className="container">
 
-                <span>
+                <span onClick={() => history.push('/wishlist')}>
                     wishlist: {productsInWishlist.length} ($ {calculatedWishlistSum})
                 </span>
 
-                <span>
+                <span onClick={() => history.push('/cart')}>
                     cart: {productsInCart.length} ($ {calculatedCartSum})
                 </span>
             </div>

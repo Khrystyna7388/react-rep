@@ -5,7 +5,15 @@ import {
     Route,
     Redirect
 } from "react-router-dom";
-import {Products, Header, ProductDetails} from "./components";
+import {
+    Products,
+    Header,
+    ProductDetails,
+    CartDetails,
+    WishlistDetails,
+    MenClothingCategory,
+    AscSort
+} from "./components";
 
 const App = () => {
 
@@ -15,6 +23,7 @@ const App = () => {
                 <Header/>
 
                 <Switch>
+
                     <Route path="/" exact>
                         <Redirect to="/products"/>
                     </Route>
@@ -28,11 +37,19 @@ const App = () => {
                     </Route>
 
                     <Route path="/cart">
-                        <div>cart</div>
+                        <CartDetails/>
                     </Route>
 
                     <Route path="/wishlist">
-                        <div>wishlist</div>
+                        <WishlistDetails/>
+                    </Route>
+
+                    <Route path="/men-clothing">
+                        <MenClothingCategory/>
+                    </Route>
+
+                    <Route path="/sort=asc">
+                        <AscSort/>
                     </Route>
 
                 </Switch>
