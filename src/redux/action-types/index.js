@@ -1,13 +1,4 @@
-
-const SET_PRODUCTS = 'SET_PRODUCTS';
-const START_LOADING = 'START_LOADING';
-const END_LOADING = 'END_LOADING';
-
-const URL = 'https://fakestoreapi.com/products';
-
-export {
-    SET_PRODUCTS,
-    START_LOADING,
-    END_LOADING,
-    URL
-}
+export * from './products-action-types';
+export * from './loading-action-types';
+export * from './cart-action-types';
+export * from './wishlist-action-types';
