@@ -1,6 +1,8 @@
 import {SET_PRODUCTS} from "../action-types";
 
-const initialState =  {
+const initFormLs = localStorage.getItem('products');
+
+const initialState = initFormLs ? JSON.parse(initFormLs) : {
     products: []
 }
 

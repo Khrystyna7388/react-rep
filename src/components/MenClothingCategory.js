@@ -24,7 +24,7 @@ export const MenClothingCategory = () => {
         fetchMenClothingCategory()
     }, [])
 
-
+    
     return(
         <div>
             <div>
